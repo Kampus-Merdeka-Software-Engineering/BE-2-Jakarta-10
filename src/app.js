@@ -4,7 +4,7 @@ const cors = require("cors");
 const authRoutes = require("./routes/authRoutes"); // Sesuaikan dengan path yang benar
 const paymentRoutes = require("./routes/paymentRoutes");
 const app = express();
-const PORT = 20498;
+const PORT = 3000;
 
 // Middleware CORS
 app.use(cors());
