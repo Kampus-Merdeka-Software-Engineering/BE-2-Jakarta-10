@@ -2,30 +2,21 @@
 const { Sequelize } = require("sequelize");
 
 // Sesuaikan dengan informasi database Anda
-const sequelize = new Sequelize(
-  "railway",
-  "root",
-  "b-2-Acgcg5Gd31fgfgFAh3B3EGdhG21C",
-  {
-    host: "roundhouse.proxy.rlwy.net",
-    port: 20498,
-    dialect: "mysql", // Sesuaikan dengan jenis database yang Anda gunakan
-  }
-);
+const sequelize = new Sequelize(process.env.DB_NAME, process.env.DB_USER, process.env.DB_PASSWORD, {
+  host: process.env.DB_HOST,
+  port: process.env.DB_PORT,
+  dialect: 'mysql',
+  logging: console.log,
+});
 
-// Uji koneksi ke database
-async function testConnection() {
-  try {
-    await sequelize.authenticate();
-    console.log(
-      "Connection to the database has been established successfully."
-    );
-  } catch (error) {
-    console.error("Unable to connect to the database:", error);
-  }
-}
+// Menguji koneksi ke database
+sequelize
+  .authenticate()
+  .then(() => {
+    console.log('Database connection has been established successfully.');
+  })
+  .catch((err) => {
+    console.error('Unable to connect to the database:', err);
+  });
 
-// Panggil fungsi uji koneksi
-testConnection();
-
-module.exports = sequelize;
+  module.exports = sequelize;
