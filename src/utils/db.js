@@ -1,7 +1,7 @@
 // src/utils/db.js
 const { Sequelize } = require('sequelize');
 
-const Sequelize = new Sequelize({
+const sequelize = new Sequelize({
   dialect: "mysql",
   host: process.env.DB_HOST || "roundhouse.proxy.rlwy.net",
   port: process.env.DB_PORT || "20498",
