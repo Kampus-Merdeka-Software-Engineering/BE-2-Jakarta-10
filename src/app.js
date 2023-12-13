@@ -15,7 +15,7 @@ app.use(bodyParser.json());
 app.use("/auth", authRoutes);
 app.use("/process", paymentRoutes); // Gunakan route untuk pembayaran
 app.use((req, res, next) => {
-  res.header("Access-Control-Allow-Origin", "*"); // Atur domain atau '*' untuk memungkinkan dari semua domain
+  res.header("Access-Control-Allow-Origin", "https://kampus-merdeka-software-engineering.github.io/FE-2-Jakarta-10/"); // Atur domain atau '*' untuk memungkinkan dari semua domain
   res.header(
     "Access-Control-Allow-Methods",
     "GET, POST, OPTIONS, PUT, PATCH, DELETE"
