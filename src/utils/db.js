@@ -1,8 +1,5 @@
-
-
 // src/utils/db.js
 const { Sequelize } = require('sequelize');
-
 
 const sequelize = new Sequelize({
   dialect: "mysql",
@@ -13,13 +10,20 @@ const sequelize = new Sequelize({
   database: process.env.DB_NAME || "railway",
 });
 
-module.exports = sequelize;
-// src/utils/db.js
-sequelize
-  .authenticate()
-  .then(() => {
+// Function to connect to the database
+async function connectToDatabase() {
+  try {
+    await sequelize.authenticate();
     console.log('Connection to the database has been established successfully.');
-  })
-  .catch((err) => {
+  } catch (err) {
     console.error('Unable to connect to the database:', err);
-  });
+    // Handle the error or throw it to be caught elsewhere in your application
+    throw err;
+  }
+}
+
+// Call the function to connect to the database
+connectToDatabase();
+
+// Export the sequelize instance
+module.exports = sequelize;
