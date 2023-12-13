@@ -1,6 +1,10 @@
 // src/models/User.js
 const { DataTypes } = require("sequelize");
+<<<<<<< HEAD
 const sequelize = require("../\/utils/db");
+=======
+const sequelize = require("../utils/db");
+>>>>>>> 73f05c4bebbbeec9947a6897a9cf53e4acd9696e
 
 const User = sequelize.define(
   "User",

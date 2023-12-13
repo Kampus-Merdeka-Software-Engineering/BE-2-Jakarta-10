@@ -2,9 +2,9 @@
 const { Sequelize } = require("sequelize");
 
 // Sesuaikan dengan informasi database Anda
-const sequelize = new Sequelize("railway", "root", "HGCbe-hFBb6BC-ddb32GDbedeEDhACba", {
+const sequelize = new Sequelize("railway", "root", "b-2-Acgcg5Gd31fgfgFAh3B3EGdhG21C", {
   host: "roundhouse.proxy.rlwy.net",
-  PORT: "22564",
+  port: "20498", // Perubahan disini
   dialect: "mysql", // Sesuaikan dengan jenis database yang Anda gunakan
 });
 
