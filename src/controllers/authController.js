@@ -8,9 +8,9 @@ exports.register = async (req, res) => {
     const { email, password } = req.body;
 
     // Validasi password
-    if (!password) {
-      return res.status(400).json({ message: "Password is required" });
-    }
+    // if (!password) {
+    //   return res.status(400).json({ message: "Password is required" });
+    // }
 
     // Hash password
     const hashedPassword = await bcrypt.hash(password, 10);
