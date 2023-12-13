@@ -21,8 +21,17 @@ app.use((req, res, next) => {
   next();
 });
 
-app.use(cors(corsOptions));
-app.use(bodyParser.json());
-app.listen(PORT, () => {
-  console.log(`Server is running on http://localhost:${PORT}`);
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(500).send('Something went wrong!');
 });
+app.listen(PORT, async () => {
+  try {
+    console.log(`Server is running on http://localhost:${PORT}`);
+  } catch (error) {
+    console.error("Error starting the server:", error);
+  }
+});
+
+
+
